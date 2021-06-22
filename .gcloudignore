@@ -1,0 +1,14 @@
+.git
+.gitignore
+.DS_Store
+.idea
+.vscode
+tmp
+infra/tmp
+.env
+*.env
+dist
+
+.gitignore
+sql
+*.md
