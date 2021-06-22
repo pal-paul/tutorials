@@ -15,7 +15,7 @@ Terraform is an open source infrastructure as code (IaC) software tool that allo
 Before we start working with Terraform, here are the pre-requisites -
 
 - You must install terraform [click here on how to install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- You must have either AWS or (Google Cloud)[https://cloud.google.com/] service account key
+- You must have either AWS or [Google Cloud](https://cloud.google.com/) service account key
 
 ### Prepare terraform file
 
