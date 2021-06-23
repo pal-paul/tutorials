@@ -1,0 +1,157 @@
+---
+layout: post
+title: "Golang Map"
+date: 2021-06-23 13:44:45 +0200
+categories: Go
+permalink: /:title/
+---
+
+# map in Golang
+
+## What is map in Golang?
+
+map is not a data type, map keyword to create a map with keys of a certain type and values of another type or the same type similar like hashes or dicts in other languages
+
+To create an empty map, use the builtin make:
+
+```
+make(map[key-type]val-type)
+```
+
+Set key/value pairs using typical `name[key] = val`
+
+Get a value for a key with `name[key]`.
+
+The `len` returns the number of key/value pairs when called on a map like `len(m)`
+
+### Example: 1
+
+```
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+
+    m := make(map[string]int)
+
+    m["key1"] = 10
+    m["key2"] = 15
+
+    fmt.Println("map:", m)
+
+    value1 := m["key1"]
+    fmt.Println("value1: ", value1)
+
+    fmt.Println("len:", len(m))
+
+    delete(m, "key2")
+    fmt.Println("map:", m)
+
+    _, ok := m["key2"]
+    fmt.Println("is key found:", ok)
+
+    n := map[string]int{"foo": 1, "bar": 2}
+    fmt.Println("map:", n)
+}
+```
+
+[go play](https://play.golang.org/p/SL9jpqt5LAU)
+
+_Note: The optional second return value when getting a value from a map indicates if the key was present in the map or not._
+
+### Example: 2
+
+struct can be used as a value type in map
+
+```
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+)
+
+type Option struct {
+	Value          string `json:"value"`
+	Order          int    `json:"order"`
+	TranslationKey string `json:"translationKey"`
+}
+type Type struct {
+	Options []Option `json:"options"`
+}
+
+type MapOptionType map[string]Type
+
+func main() {
+	data := []byte(`{
+        "input": {
+            "options": [
+            {
+                "value": "",
+                "order": 1,
+                "translationKey": null
+            }
+            ]
+        },
+        "yesno": {
+            "options": [
+            {
+                "value": "yes",
+                "order": 1,
+                "translationKey": "YES",
+                "preselected": true
+            },
+            {
+                "value": "no",
+                "order": 2,
+                "translationKey": "NO",
+                "preselected": false
+            }
+            ]
+        }
+    }`)
+
+	var objmap MapOptionType
+	err := json.Unmarshal(data, &objmap)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%#v", objmap["input"])
+
+}
+
+```
+
+[go play](https://play.golang.org/p/Nm05_cQgowM)
+
+### Example: 3
+
+interface can be used as a value type in map like `map[string]interface{}`
+
+```
+type Person struct {
+    Name    string
+    Age     int
+    Hobbies []string
+}
+
+person:=map[string]interface{
+   "name":"Johana",
+   "age":30,
+   "hobbies":[
+      "arts",
+      "foods",
+      "piano"
+   ]
+}
+
+```
+
+When to use `map[string]interface{}`?
+
+The _map of string to empty interface_ type is very useful when we need to deal with JSON data of an unknown schema.
