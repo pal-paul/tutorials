@@ -344,3 +344,90 @@ hr {
 }
 
 strong { font-weight: 600; }
+
+// ─── Category Pills ───────────────────────────────────────────────────────────
+.post-category {
+  display: inline-block;
+  background: $brand-light;
+  color: $brand;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+// ─── Home post list meta row ─────────────────────────────────────────────────
+.post-list-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+// ─── Post excerpt on home ─────────────────────────────────────────────────────
+.post-excerpt {
+  color: $text-muted;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+// ─── Reading time ─────────────────────────────────────────────────────────────
+.reading-time {
+  color: $text-muted;
+  font-size: 0.85rem;
+}
+
+// ─── Post navigation ─────────────────────────────────────────────────────────
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid $border;
+
+  a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 16px 20px;
+    text-decoration: none;
+    transition: box-shadow .2s, transform .2s;
+    max-width: 48%;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+
+  .post-nav-next { align-items: flex-end; text-align: right; }
+
+  .post-nav-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: $brand;
+    margin-bottom: 4px;
+  }
+
+  .post-nav-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $heading;
+    line-height: 1.4;
+  }
+}
+

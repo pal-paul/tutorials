@@ -1,16 +1,21 @@
 title: Coding with Pal-Paul
 email: palashpaul.net@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  tobe update
+description: >-
+  Tutorials and hands-on guides on cloud infrastructure, Terraform, Go, GitHub Actions, and Google Cloud Platform.
 
 markdown: kramdown
-baseurl: "/tutorials" # the subpath of your site, e.g. /blog
-url: "https://pal-paul.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/tutorials"
+url: "https://pal-paul.github.io"
 twitter_username: pal-paul
 github_username:  pal-paul
 
 # Build settings
 theme: minima
+show_excerpts: true
+
+minima:
+  date_format: "%b %-d, %Y"
+
 plugins:
   - jekyll-feed
 
