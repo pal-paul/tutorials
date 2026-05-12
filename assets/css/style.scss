@@ -1,0 +1,346 @@
+---
+---
+
+@import "minima";
+
+// ─── Variables ───────────────────────────────────────────────────────────────
+$brand:        #2563eb;
+$brand-dark:   #1d4ed8;
+$brand-light:  #eff6ff;
+$bg:           #f8fafc;
+$surface:      #ffffff;
+$text:         #1e293b;
+$text-muted:   #64748b;
+$heading:      #0f172a;
+$border:       #e2e8f0;
+$code-bg:      #0f172a;
+$code-text:    #e2e8f0;
+$radius:       10px;
+$shadow-sm:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+$shadow-md:    0 4px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+
+// ─── Base ─────────────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: $bg;
+  color: $text;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $heading;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: $brand;
+  text-decoration: none;
+  transition: color .2s;
+  &:hover { color: $brand-dark; text-decoration: underline; }
+  &:visited { color: $brand; }
+}
+
+// ─── Site Header ──────────────────────────────────────────────────────────────
+.site-header {
+  background: $heading;
+  border-top: 3px solid $brand;
+  border-bottom: none;
+  box-shadow: $shadow-md;
+  padding: 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #ffffff !important;
+    &:hover { color: #93c5fd !important; text-decoration: none; }
+    &:visited { color: #ffffff !important; }
+  }
+
+  .site-nav {
+    .page-link {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-left: 24px;
+      transition: color .2s;
+      &:hover { color: #ffffff; text-decoration: none; }
+    }
+
+    .menu-icon > svg path { fill: #94a3b8; }
+
+    @media (max-width: 600px) {
+      background: $heading;
+      border: 1px solid #334155;
+      border-radius: $radius;
+      .page-link { color: #cbd5e1; display: block; padding: 6px 14px; margin: 0; }
+    }
+  }
+}
+
+// ─── Site Footer ──────────────────────────────────────────────────────────────
+.site-footer {
+  background: $heading;
+  border-top: none;
+  color: #94a3b8;
+  font-size: 0.85rem;
+
+  .footer-heading { color: #e2e8f0; font-weight: 600; }
+  a { color: #93c5fd; &:hover { color: #ffffff; } &:visited { color: #93c5fd; } }
+}
+
+// ─── Home / Post List ─────────────────────────────────────────────────────────
+.home {
+  h1.page-heading {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .post-list-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 24px;
+    border-bottom: 2px solid $border;
+    padding-bottom: 10px;
+  }
+
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 20px;
+
+    > li {
+      background: $surface;
+      border: 1px solid $border;
+      border-radius: $radius;
+      padding: 24px 28px;
+      box-shadow: $shadow-sm;
+      transition: box-shadow .2s, transform .2s;
+
+      &:hover {
+        box-shadow: $shadow-md;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+  }
+
+  .post-link {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $heading;
+    display: block;
+    &:hover { color: $brand; text-decoration: none; }
+    &:visited { color: $heading; }
+  }
+}
+
+// ─── Post Page ────────────────────────────────────────────────────────────────
+.post {
+  .post-header {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 36px 40px 28px;
+    margin-bottom: 36px;
+    box-shadow: $shadow-sm;
+  }
+
+  .post-title {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .post-meta {
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-weight: 500;
+
+    .post-categories a {
+      display: inline-block;
+      background: $brand-light;
+      color: $brand;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+      &:hover { background: $brand; color: #fff; text-decoration: none; }
+    }
+  }
+
+  .post-content {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 36px 40px;
+    box-shadow: $shadow-sm;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      padding-bottom: 8px;
+      border-bottom: 2px solid $border;
+    }
+
+    h3 { font-size: 1.2rem; margin-top: 2rem; }
+
+    p { margin-bottom: 1.25rem; }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      li { margin-bottom: 6px; }
+    }
+
+    blockquote {
+      border-left: 4px solid $brand;
+      background: $brand-light;
+      margin: 1.5rem 0;
+      padding: 14px 20px;
+      border-radius: 0 $radius $radius 0;
+      color: $text;
+      font-style: normal;
+      p { margin: 0; }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      border-radius: $radius;
+      overflow: hidden;
+      box-shadow: $shadow-sm;
+
+      th {
+        background: $heading;
+        color: #e2e8f0;
+        font-weight: 600;
+        padding: 12px 16px;
+        text-align: left;
+      }
+      td { padding: 10px 16px; border-bottom: 1px solid $border; }
+      tr:last-child td { border-bottom: none; }
+      tr:nth-child(even) td { background: #f1f5f9; }
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: $radius;
+      box-shadow: $shadow-md;
+      margin: 1.5rem 0;
+    }
+  }
+}
+
+// ─── Code ─────────────────────────────────────────────────────────────────────
+code, tt {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.875em;
+  background: #f1f5f9;
+  color: #c026d3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid $border;
+}
+
+pre {
+  background: $code-bg !important;
+  border-radius: $radius;
+  padding: 20px 24px;
+  overflow-x: auto;
+  box-shadow: $shadow-md;
+  margin: 1.5rem 0;
+
+  code, tt {
+    background: transparent;
+    color: $code-text;
+    padding: 0;
+    border: none;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+// ─── Page / Generic Content ───────────────────────────────────────────────────
+.page-content {
+  padding: 48px 0;
+}
+
+.wrapper {
+  max-width: 840px;
+}
+
+// ─── Pagination ───────────────────────────────────────────────────────────────
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+
+  a, span {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: $radius;
+    border: 1px solid $border;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: $brand;
+    background: $surface;
+    transition: all .2s;
+  }
+
+  a:hover {
+    background: $brand;
+    color: #fff;
+    border-color: $brand;
+    text-decoration: none;
+  }
+
+  span { color: $text-muted; background: $bg; cursor: default; }
+}
+
+// ─── Syntax Highlight Overrides ───────────────────────────────────────────────
+.highlight {
+  border-radius: $radius;
+  box-shadow: $shadow-md;
+  margin: 1.5rem 0;
+}
+
+// ─── Utility ──────────────────────────────────────────────────────────────────
+hr {
+  border: none;
+  border-top: 2px solid $border;
+  margin: 2rem 0;
+}
+
+strong { font-weight: 600; }
