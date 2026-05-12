@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Detecting Firestore Changes and Triggering Cloud Run via Eventarc"
-date: 2026-05-12 10:00:00 +0200
+date: 2026-05-12 00:00:00 +0000
 categories: Terraform
 permalink: /:title/
 ---
